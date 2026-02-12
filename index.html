@@ -4,43 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Grants Initiative</title>
+
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #f4f6f9;
       color: #333;
+      overflow-x: hidden;
     }
 
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Slide-in from right */
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Parallax container */
+    .parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Hero Section */
     header {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: url('nice.jpg') no-repeat center center;
-  background-size: cover;
-  color: white;
-}
+      text-align: center;
+      padding: 3rem 2rem;
+      background: url('nice.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      opacity: 0;
+      animation: fadeIn 1.2s ease-out forwards;
+      background-attachment: fixed; /* strong parallax */
+    }
 
     header img {
-      width: 220px;   /* enlarged photo */
-      height: 220px;  /* enlarged photo */
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 0.3rem; /* reduced spacing */
+      margin-bottom: 0.3rem;
       border: 4px solid white;
     }
 
     header h1 {
       font-size: 2.5rem;
-      margin-bottom: 0.3rem; /* closer to paragraph */
+      margin-bottom: 0.3rem;
     }
 
     header p {
-      font-family: Georgia, serif; /* modern, elegant font */
+      font-family: Georgia, serif;
       font-size: 1.2rem;
       max-width: 600px;
       margin: auto;
     }
 
+    /* Video Feed */
     .video-feed {
       max-width: 700px;
       margin: 3rem auto;
@@ -53,6 +79,14 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin-bottom: 2.5rem;
       overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .video-card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .video-card iframe {
@@ -76,6 +110,7 @@
     .info-section {
       background: url('top.jpg') no-repeat center center;
       background-size: cover;
+      background-attachment: fixed; /* strong parallax */
       color: white;
       padding: 4rem 2rem;
       text-align: center;
@@ -84,6 +119,14 @@
     .info-block {
       max-width: 800px;
       margin: 2rem auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .info-block.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .info-block h2 {
@@ -95,7 +138,7 @@
     .info-block p {
       font-size: 1.1rem;
       line-height: 1.6;
-      color: #ddd;
+      color: #dddddd;
     }
 
     /* Floating buttons */
@@ -107,6 +150,8 @@
       flex-direction: column;
       gap: 10px;
       z-index: 1000;
+      opacity: 0;
+      animation: slideInRight 1s ease-out 0.5s forwards;
     }
 
     .floating-buttons a {
@@ -125,93 +170,84 @@
       transform: scale(1.05);
     }
 
-    .whatsapp { background: #25D366; }
-    .telegram { background: #0088cc; }
+    .email { background: #0078ff; } /* NEW modern blue */
     .dm { background: #333; }
   </style>
 </head>
+
 <body>
+
   <!-- Hero Section -->
   <header>
     <img src="philanthropist-photo.jpg" alt="Philanthropist">
-    <h1>ELON MUSK GRANTS. </h1>
+    <h1>ELON MUSK GRANTS.</h1>
     <p>Elon Musk free Grant Programme is powered by Elon Musk and other philanthropist and its dedicated to empower individuals and communities by providing free financial grants to applicants, no repayment is required. Apply now by reaching out to us through Whatsapp, Telegram or text message by clicking on the provided buttons.</p>
+    <p style="color: yellow;"> Please make sure to watch all the video below in other to get more insights on how this grant programme works.</p>
   </header>
 
   <!-- Video Feed -->
   <section class="video-feed">
+
     <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1162997814?autoplay=1&muted=1" 
-              width="100%" height="400" 
-              frameborder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
+      <iframe src="https://player.vimeo.com/video/1162997814"
+              allow="fullscreen; picture-in-picture"
               allowfullscreen></iframe>
       <div class="video-label">Just incase you missed out: Elon Musk announced free grant for the general public.</div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1163027312?autoplay=1&muted=1&title=0&byline=0&portrait=0" 
-              width="100%" height="400" 
-              frameborder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
-              allowfullscreen></iframe>
-      <div class="video-label">Congratulations to you Sir, for receiving your grant. thanks for the review</div>
-    </div>
+  <iframe 
+    src="https://player.vimeo.com/video/1164176492?title=0&byline=0&portrait=0"
+    allow="fullscreen; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+  <div class="video-label">Congratulations to you Sir, for receiving your grant. It's a pleasure to establish you.</div>
+</div>
 
     <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1163071252?autoplay=1&muted=1&title=0&byline=0&portrait=0" 
-              width="100%" height="400" 
-              frameborder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
+      <iframe src="https://player.vimeo.com/video/1163071252?title=0&byline=0&portrait=0"
+              allow="fullscreen; picture-in-picture"
               allowfullscreen></iframe>
       <div class="video-label">Congratulations to you Ma. Thanks for the feedback</div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1163075779?autoplay=1&muted=1&title=0&byline=0&portrait=0" 
-              width="100%" height="400" 
-              frameborder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
-              allowfullscreen></iframe>
-      <div class="video-label">Big congratulations to you sir,</div>
-    </div>
+  <iframe 
+    src="https://player.vimeo.com/video/1164181360?title=0&byline=0&portrait=0"
+    allow="fullscreen; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+  <div class="video-label">Congrats Ma. Thanks for the feedback video. You can help other by creating more awareness</div>
+</div>
 
     <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1163077269?autoplay=1&muted=1&title=0&byline=0&portrait=0" 
-              width="100%" height="400" 
-              frameborder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
+      <iframe src="https://player.vimeo.com/video/1163077269?title=0&byline=0&portrait=0"
+              allow="fullscreen; picture-in-picture"
               allowfullscreen></iframe>
       <div class="video-label">Congrats to you Ma. we appreciace your review.</div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1163079907?autoplay=1&muted=1&title=0&byline=0&portrait=0" 
-              width="100%" height="400" 
-              frameborder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
+      <iframe src="https://player.vimeo.com/video/1163079907?title=0&byline=0&portrait=0"
+              allow="fullscreen; picture-in-picture"
               allowfullscreen></iframe>
       <div class="video-label">Congratulations Ma. thanks for making us a review video.</div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1163135499?autoplay=1&muted=1&title=0&byline=0&portrait=0" 
-              width="100%" height="400" 
-              frameborder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
+      <iframe src="https://player.vimeo.com/video/1163135499?title=0&byline=0&portrait=0"
+              allow="fullscreen; picture-in-picture"
               allowfullscreen></iframe>
       <div class="video-label">Congratulations to you Ma. we appreciate your positive review video as well.</div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1163137543?autoplay=1&muted=1&title=0&byline=0&portrait=0" 
-              width="100%" height="400" 
-              frameborder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
+      <iframe src="https://player.vimeo.com/video/1163137543?title=0&byline=0&portrait=0"
+              allow="fullscreen; picture-in-picture"
               allowfullscreen></iframe>
       <div class="video-label">Congratulations to you and your family Ma. we are delighted to know how much positivity this grant has brought you and your family</div>
     </div>
-    <!-- Add more videos up to 12 -->
+
   </section>
 
   <!-- Info Section -->
@@ -219,29 +255,55 @@
     <div class="info-block">
       <h2>About this Grant</h2>
       <p>This grant programme is sponsored by Elon Musk and other generous philanthropists, this programme provides free grants to individuals, startups, and groups with innovative business ideas but limited capital.
-We aim to empower creativity, support entrepreneurship, and drive community growth. Grant amounts are tailored to each applicant’s proposal, ensuring funds are used to make the greatest impact.
-Turn your vision into reality—apply today and let your ideas thrive!</p>
+      We aim to empower creativity, support entrepreneurship, and drive community growth. Grant amounts are tailored to each applicant’s proposal, ensuring funds are used to make the greatest impact.
+      Turn your vision into reality—apply today and let your ideas thrive!</p>
     </div>
+
     <div class="info-block">
       <h2>How to Apply</h2>
       <p>To apply for this grant, simply use one of the contact options on the right side of your screen: <br>
-• 	WhatsApp – Click the WhatsApp button to reach us directly. </br>
-• 	Telegram – Click the Telegram button to connect with us. </br>
-• 	Text Message – Click the Text Message button to send us a direct SMS. </br>
-Choose the option most convenient for you and get started today!</p>
+      • Email – Click the Email button to reach us directly. </br>
+      • Text Message – Click the Text Message button to send us a direct SMS. </br>
+        Choose the option most convenient for you and get started today!</p>
     </div>
+
     <div class="info-block">
       <h2>Questions & Answers</h2>
       <p>-Is this grant only for residents in the United States? No</p>
       <p>-Must I own a business or company in other to apply? No</p>
       <p>Do I need to pay back the grant? No</p>
-      <p> Does this free grant require a collateral? No </p>
-
+      <p>Does this free grant require a collateral? No</p>
     </div>
   </section>
 
   <!-- Floating Contact Buttons -->
   <div class="floating-buttons">
-    <a href="https://wa.me/+18622713839" target="_blank" class="whatsapp">WhatsApp</a>
-    <a href="https://t.me/muskprojectgrant" target="_blank" class="telegram">Telegram</a>
+    <a href="mailto:example@gmail.com" class="email">Email Us</a>
     <a href="sms:+13024496237" class="dm">Text Message</a>
+  </div>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const cards = document.querySelectorAll('.video-card');
+    const infoBlocks = document.querySelectorAll('.info-block');
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.85;
+
+      cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if (top < trigger) card.classList.add('visible');
+      });
+
+      infoBlocks.forEach(block => {
+        const top = block.getBoundingClientRect().top;
+        if (top < trigger) block.classList.add('visible');
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>
